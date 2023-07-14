@@ -42,13 +42,13 @@
             dgvPokemon.Name = "dgvPokemon";
             dgvPokemon.RowHeadersWidth = 51;
             dgvPokemon.RowTemplate.Height = 29;
-            dgvPokemon.Size = new Size(620, 347);
+            dgvPokemon.Size = new Size(755, 347);
             dgvPokemon.TabIndex = 0;
             dgvPokemon.SelectionChanged += dgvPokemon_SelectionChanged;
             // 
             // pbxPokemon
             // 
-            pbxPokemon.Location = new Point(684, 52);
+            pbxPokemon.Location = new Point(847, 52);
             pbxPokemon.Name = "pbxPokemon";
             pbxPokemon.Size = new Size(324, 347);
             pbxPokemon.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -59,7 +59,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1020, 480);
+            ClientSize = new Size(1170, 480);
             Controls.Add(pbxPokemon);
             Controls.Add(dgvPokemon);
             Icon = (Icon)resources.GetObject("$this.Icon");

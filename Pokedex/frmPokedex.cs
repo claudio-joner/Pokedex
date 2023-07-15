@@ -1,3 +1,7 @@
+using Dominio;
+using Negocio;
+
+
 namespace Pokedex
 {
     public partial class frmPokedex : Form

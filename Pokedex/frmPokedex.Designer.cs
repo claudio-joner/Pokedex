@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPokedex));
             dgvPokemon = new DataGridView();
             pbxPokemon = new PictureBox();
+            btnAgregar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPokemon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxPokemon).BeginInit();
             SuspendLayout();
@@ -38,11 +39,11 @@
             // dgvPokemon
             // 
             dgvPokemon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPokemon.Location = new Point(58, 52);
+            dgvPokemon.Location = new Point(12, 52);
             dgvPokemon.Name = "dgvPokemon";
             dgvPokemon.RowHeadersWidth = 51;
             dgvPokemon.RowTemplate.Height = 29;
-            dgvPokemon.Size = new Size(755, 347);
+            dgvPokemon.Size = new Size(801, 347);
             dgvPokemon.TabIndex = 0;
             dgvPokemon.SelectionChanged += dgvPokemon_SelectionChanged;
             // 
@@ -55,15 +56,27 @@
             pbxPokemon.TabIndex = 1;
             pbxPokemon.TabStop = false;
             // 
+            // btnAgregar
+            // 
+            btnAgregar.Location = new Point(43, 430);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(94, 29);
+            btnAgregar.TabIndex = 2;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
             // frmPokedex
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1170, 480);
+            Controls.Add(btnAgregar);
             Controls.Add(pbxPokemon);
             Controls.Add(dgvPokemon);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmPokedex";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Pokedex";
             Load += frmPokedex_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPokemon).EndInit();
@@ -75,5 +88,6 @@
 
         private DataGridView dgvPokemon;
         private PictureBox pbxPokemon;
+        private Button btnAgregar;
     }
 }

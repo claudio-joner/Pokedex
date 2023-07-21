@@ -60,7 +60,11 @@ namespace Negocio
             AccecsoDatos datos = new AccecsoDatos();
             try
             {
-                datos.setearConsulta("Insert into Pokemons (Numero,Nombre,Descripcion,Activo)values ("+ nuevo.Numero+",'"+nuevo.Nombre +"',"+nuevo.Descripcion+",1)");
+                datos.setearConsulta("Insert into Pokemons (Numero,Nombre,Descripcion,Activo,UrlImagen,IdTipo,IdDebilidad)values ("
+                                    + nuevo.Numero +",'"+ nuevo.Nombre +"','"+ nuevo.Descripcion +"',1,'"+ nuevo.UrlImagen +"',@idTipo,@idDebilidad)");
+                datos.setearParametro("@idTipo", nuevo.Tipo.Id);
+                datos.setearParametro("@idDebilidad", nuevo.Debilidad.Id);
+                
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

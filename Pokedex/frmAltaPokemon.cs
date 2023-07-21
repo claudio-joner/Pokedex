@@ -19,17 +19,29 @@ namespace Pokedex
             InitializeComponent();
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
 
+        private void frmAltaPokemon_Load(object sender, EventArgs e)
+        {
+            ElementoNegocio elementoNegocio = new ElementoNegocio();
+            try
+            {
+                cboTipo.DataSource = elementoNegocio.listar();
+                cboDebilidad.DataSource = elementoNegocio.listar();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void btnAceptar_Click_1(object sender, EventArgs e)
         {
             Pokemon nuevo = new Pokemon();
             PokemonDatos pokemonDatos = new PokemonDatos();
@@ -38,8 +50,15 @@ namespace Pokedex
                 nuevo.Numero = int.Parse(txtNumero.Text);
                 nuevo.Nombre = txtNombre.Text;
                 nuevo.Descripcion = txtDescripcion.Text;
+                nuevo.UrlImagen  = txtImagen.Text;
+                nuevo.Tipo = (Elemento)cboTipo.SelectedItem;
+                nuevo.Debilidad = (Elemento)cboDebilidad.SelectedItem;
 
                 pokemonDatos.agregarPokemon(nuevo);
+
+                MessageBox.Show("Agregado Exitosamente");
+                this.Close();
+
 
             }
             catch (Exception ex)
@@ -48,5 +67,7 @@ namespace Pokedex
                 MessageBox.Show(ex.ToString());
             }
         }
+
+
     }
 }

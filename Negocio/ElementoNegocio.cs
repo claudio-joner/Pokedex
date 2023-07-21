@@ -13,7 +13,7 @@ namespace Negocio
         {
 			List<Elemento> lista = new List<Elemento>();
 			AccecsoDatos datos = new AccecsoDatos();
-			string consulta = "Selec * from Elementos";
+			string consulta = "Select * from Elementos";
 			try
 			{
 				datos.setearConsulta(consulta);
@@ -24,6 +24,7 @@ namespace Negocio
 					Elemento aux = new Elemento();
 					aux.Id = (int)datos.Lector[0];
 					aux.Descripcion = (string)datos.Lector[1];
+					lista.Add(aux);
 				}
 
 				return lista;

@@ -39,10 +39,13 @@
             // dgvPokemon
             // 
             dgvPokemon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPokemon.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgvPokemon.Location = new Point(12, 52);
+            dgvPokemon.MultiSelect = false;
             dgvPokemon.Name = "dgvPokemon";
             dgvPokemon.RowHeadersWidth = 51;
             dgvPokemon.RowTemplate.Height = 29;
+            dgvPokemon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPokemon.Size = new Size(801, 347);
             dgvPokemon.TabIndex = 0;
             dgvPokemon.SelectionChanged += dgvPokemon_SelectionChanged;

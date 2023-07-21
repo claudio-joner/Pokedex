@@ -14,19 +14,7 @@ namespace Pokedex
 
         private void frmPokedex_Load(object sender, EventArgs e)
         {
-            PokemonDatos datos = new PokemonDatos();
-            try
-            {
-                listaPokemon = datos.Listar();
-                dgvPokemon.DataSource = listaPokemon;
-                dgvPokemon.Columns["UrlImagen"].Visible = false;
-                pbxPokemon.Load(listaPokemon[0].UrlImagen);
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.ToString());
-            }
+            CargarPokemon();
 
         }
 
@@ -53,6 +41,24 @@ namespace Pokedex
             frmAltaPokemon alta = new frmAltaPokemon();
 
             alta.ShowDialog();
+            CargarPokemon();
+
+        }
+        private void CargarPokemon()
+        {
+            PokemonDatos datos = new PokemonDatos();
+            try
+            {
+                listaPokemon = datos.Listar();
+                dgvPokemon.DataSource = listaPokemon;
+                dgvPokemon.Columns["UrlImagen"].Visible = false;
+                pbxPokemon.Load(listaPokemon[0].UrlImagen);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

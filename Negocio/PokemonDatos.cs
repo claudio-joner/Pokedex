@@ -35,7 +35,12 @@ namespace Negocio
                     auxiliar.Numero = lector.GetInt32(0);
                     auxiliar.Nombre = (string)lector["nombre"];
                     auxiliar.Descripcion = (string)lector[2];
-                    auxiliar.UrlImagen = (string)lector[3];
+                    //if(!(lector.IsDBNull(lector.GetOrdinal("UrlImagen"))))
+                    //    auxiliar.UrlImagen = (string)lector[3];
+                    if (!(lector["UrlImagen"] is DBNull))
+                    {
+                        auxiliar.UrlImagen = (string)lector[3];
+                    }
                     auxiliar.Tipo = new Elemento();
                     auxiliar.Tipo.Descripcion = (string)lector[4];
                     auxiliar.Debilidad = new Elemento();
@@ -54,7 +59,7 @@ namespace Negocio
             
 
         }
-
+         
         public void agregarPokemon(Pokemon nuevo)
         {
             AccecsoDatos datos = new AccecsoDatos();

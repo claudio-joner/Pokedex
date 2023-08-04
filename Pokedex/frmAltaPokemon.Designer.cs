@@ -42,6 +42,8 @@
             label5 = new Label();
             txtImagen = new TextBox();
             label6 = new Label();
+            pbxPokemon = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pbxPokemon).BeginInit();
             SuspendLayout();
             // 
             // txtNombre
@@ -82,7 +84,6 @@
             txtNumero.Name = "txtNumero";
             txtNumero.Size = new Size(125, 27);
             txtNumero.TabIndex = 0;
-
             // 
             // label1
             // 
@@ -95,20 +96,20 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(236, 317);
+            btnCancelar.Location = new Point(347, 316);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(94, 29);
-            btnCancelar.TabIndex = 6;
+            btnCancelar.TabIndex = 7;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click_1;
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(77, 317);
+            btnAceptar.Location = new Point(188, 316);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(94, 29);
-            btnAceptar.TabIndex = 5;
+            btnAceptar.TabIndex = 6;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
             btnAceptar.Click += btnAceptar_Click_1;
@@ -128,8 +129,8 @@
             cboTipo.FormattingEnabled = true;
             cboTipo.Location = new Point(164, 205);
             cboTipo.Name = "cboTipo";
-            cboTipo.Size = new Size(151, 28);
-            cboTipo.TabIndex = 3;
+            cboTipo.Size = new Size(125, 28);
+            cboTipo.TabIndex = 4;
             // 
             // cboDebilidad
             // 
@@ -137,8 +138,8 @@
             cboDebilidad.FormattingEnabled = true;
             cboDebilidad.Location = new Point(164, 256);
             cboDebilidad.Name = "cboDebilidad";
-            cboDebilidad.Size = new Size(151, 28);
-            cboDebilidad.TabIndex = 4;
+            cboDebilidad.Size = new Size(125, 28);
+            cboDebilidad.TabIndex = 5;
             // 
             // label5
             // 
@@ -154,7 +155,9 @@
             txtImagen.Location = new Point(164, 165);
             txtImagen.Name = "txtImagen";
             txtImagen.Size = new Size(125, 27);
-            txtImagen.TabIndex = 26;
+            txtImagen.TabIndex = 3;
+            txtImagen.TextChanged += txtImagen_TextChanged;
+            txtImagen.Leave += txtImagen_Leave;
             // 
             // label6
             // 
@@ -165,11 +168,21 @@
             label6.TabIndex = 27;
             label6.Text = "Imagen:";
             // 
+            // pbxPokemon
+            // 
+            pbxPokemon.Location = new Point(347, 36);
+            pbxPokemon.Name = "pbxPokemon";
+            pbxPokemon.Size = new Size(276, 248);
+            pbxPokemon.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbxPokemon.TabIndex = 28;
+            pbxPokemon.TabStop = false;
+            // 
             // frmAltaPokemon
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(388, 371);
+            ClientSize = new Size(673, 371);
+            Controls.Add(pbxPokemon);
             Controls.Add(txtImagen);
             Controls.Add(label6);
             Controls.Add(cboDebilidad);
@@ -188,6 +201,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Nuevo Pokemon";
             Load += frmAltaPokemon_Load;
+            ((System.ComponentModel.ISupportInitialize)pbxPokemon).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -208,5 +222,6 @@
         private Label label5;
         private TextBox txtImagen;
         private Label label6;
+        private PictureBox pbxPokemon;
     }
 }

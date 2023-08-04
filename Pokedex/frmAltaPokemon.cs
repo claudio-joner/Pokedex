@@ -50,7 +50,7 @@ namespace Pokedex
                 nuevo.Numero = int.Parse(txtNumero.Text);
                 nuevo.Nombre = txtNombre.Text;
                 nuevo.Descripcion = txtDescripcion.Text;
-                nuevo.UrlImagen  = txtImagen.Text;
+                nuevo.UrlImagen = txtImagen.Text;
                 nuevo.Tipo = (Elemento)cboTipo.SelectedItem;
                 nuevo.Debilidad = (Elemento)cboDebilidad.SelectedItem;
 
@@ -68,5 +68,25 @@ namespace Pokedex
             }
         }
 
+        private void txtImagen_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtImagen_Leave(object sender, EventArgs e)
+        {
+            CargarImagen(txtImagen.Text);
+        }
+        private void CargarImagen(string UrlImagen)
+        {
+            try
+            {
+                pbxPokemon.Load(UrlImagen);
+            }
+            catch (Exception)
+            {
+                pbxPokemon.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy9Jw7n8XY-g-dqx9i-zetdrF1Tyai7CxEyA261Mld&s");
+            }
+        }
     }
 }

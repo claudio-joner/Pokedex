@@ -14,11 +14,19 @@ namespace Pokedex
 {
     public partial class frmAltaPokemon : Form
     {
+        private Pokemon pokemon = null;
         public frmAltaPokemon()
         {
             InitializeComponent();
         }
 
+        //Construcctor para modificar
+        public frmAltaPokemon(Pokemon pokemon)
+        {
+            InitializeComponent();
+            this.pokemon = pokemon;
+            Text = "Modificar Pokemon";
+        }
 
         private void frmAltaPokemon_Load(object sender, EventArgs e)
         {
@@ -26,7 +34,23 @@ namespace Pokedex
             try
             {
                 cboTipo.DataSource = elementoNegocio.listar();
+                cboTipo.ValueMember = "Id";
+                cboTipo.DisplayMember = "Descripcion";
                 cboDebilidad.DataSource = elementoNegocio.listar();
+                cboDebilidad.ValueMember = "Id";
+                cboDebilidad.DisplayMember = "Descripcion";
+
+                if (pokemon != null )
+                {
+                    txtNumero.Text = pokemon.Numero.ToString();
+                    txtNombre.Text = pokemon.Nombre;
+                    txtDescripcion.Text = pokemon.Descripcion;
+                    txtImagen.Text = pokemon.UrlImagen;
+                    CargarImagen(pokemon.UrlImagen);
+                    cboTipo.SelectedValue = pokemon.Tipo.Id;
+                    cboDebilidad.SelectedValue = pokemon.Debilidad.Id;
+
+                }
             }
             catch (Exception ex)
             {
@@ -43,20 +67,31 @@ namespace Pokedex
 
         private void btnAceptar_Click_1(object sender, EventArgs e)
         {
-            Pokemon nuevo = new Pokemon();
+            //Pokemon nuevo = new Pokemon();
             PokemonDatos pokemonDatos = new PokemonDatos();
             try
             {
-                nuevo.Numero = int.Parse(txtNumero.Text);
-                nuevo.Nombre = txtNombre.Text;
-                nuevo.Descripcion = txtDescripcion.Text;
-                nuevo.UrlImagen = txtImagen.Text;
-                nuevo.Tipo = (Elemento)cboTipo.SelectedItem;
-                nuevo.Debilidad = (Elemento)cboDebilidad.SelectedItem;
+                if(pokemon == null )
+                    pokemon = new Pokemon();
+                
+                pokemon.Numero = int.Parse(txtNumero.Text);
+                pokemon.Nombre = txtNombre.Text;
+                pokemon.Descripcion = txtDescripcion.Text;
+                pokemon.UrlImagen = txtImagen.Text;
+                pokemon.Tipo = (Elemento)cboTipo.SelectedItem;
+                pokemon.Debilidad = (Elemento)cboDebilidad.SelectedItem;
 
-                pokemonDatos.agregarPokemon(nuevo);
+                if (pokemon.Id != 0)
+                {
+                    pokemonDatos.modificarPokemon(pokemon);
+                    MessageBox.Show("Modificado Exitosamente");
+                }
+                else
+                {
+                    pokemonDatos.agregarPokemon(pokemon);
+                    MessageBox.Show("Agregado Exitosamente");
+                }
 
-                MessageBox.Show("Agregado Exitosamente");
                 this.Close();
 
 

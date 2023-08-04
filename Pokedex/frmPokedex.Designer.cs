@@ -32,6 +32,7 @@
             dgvPokemon = new DataGridView();
             pbxPokemon = new PictureBox();
             btnAgregar = new Button();
+            btnModificar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPokemon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxPokemon).BeginInit();
             SuspendLayout();
@@ -48,6 +49,7 @@
             dgvPokemon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPokemon.Size = new Size(801, 347);
             dgvPokemon.TabIndex = 0;
+            dgvPokemon.CellContentClick += dgvPokemon_CellContentClick;
             dgvPokemon.SelectionChanged += dgvPokemon_SelectionChanged;
             // 
             // pbxPokemon
@@ -69,11 +71,22 @@
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click;
             // 
+            // btnModificar
+            // 
+            btnModificar.Location = new Point(170, 430);
+            btnModificar.Name = "btnModificar";
+            btnModificar.Size = new Size(94, 29);
+            btnModificar.TabIndex = 3;
+            btnModificar.Text = "Modificar";
+            btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
+            // 
             // frmPokedex
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1170, 480);
+            Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
             Controls.Add(pbxPokemon);
             Controls.Add(dgvPokemon);
@@ -92,5 +105,6 @@
         private DataGridView dgvPokemon;
         private PictureBox pbxPokemon;
         private Button btnAgregar;
+        private Button btnModificar;
     }
 }

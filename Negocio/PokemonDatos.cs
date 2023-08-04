@@ -22,7 +22,7 @@ namespace Negocio
             {
                 conexion.ConnectionString = "Data Source=DESKTOP-6KIGGOG\\MSSQLSERVER01;Initial Catalog=POKEDEX_DB;Integrated Security=True; Encrypt=False";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "Select p.Numero,p.Nombre,p.Descripcion,p.UrlImagen, e.Descripcion Tipo,D.Descripcion Debilidad " +
+                comando.CommandText = "Select p.Numero,p.Nombre,p.Descripcion,p.UrlImagen, e.Descripcion Tipo,D.Descripcion Debilidad, p.IdTipo, p.IdDebilidad, p.Id " +
                                       "From POKEMONS p,ELEMENTOS e, ELEMENTOS d WHERE e.Id = p.IdTipo AND d.Id = p.IdDebilidad";
                 comando.Connection = conexion;
 
@@ -33,6 +33,7 @@ namespace Negocio
                 {
                     Pokemon auxiliar = new Pokemon();
                     auxiliar.Numero = lector.GetInt32(0);
+                    auxiliar.Id = (int)lector["Id"];
                     auxiliar.Nombre = (string)lector["nombre"];
                     auxiliar.Descripcion = (string)lector[2];
                     //if(!(lector.IsDBNull(lector.GetOrdinal("UrlImagen"))))
@@ -42,8 +43,10 @@ namespace Negocio
                         auxiliar.UrlImagen = (string)lector[3];
                     }
                     auxiliar.Tipo = new Elemento();
+                    auxiliar.Tipo.Id = (int)lector[6];
                     auxiliar.Tipo.Descripcion = (string)lector[4];
                     auxiliar.Debilidad = new Elemento();
+                    auxiliar.Debilidad.Id = (int)lector[7];
                     auxiliar.Debilidad.Descripcion = (string)lector["Debilidad"];
                     lista.Add(auxiliar);
                 }
@@ -70,6 +73,36 @@ namespace Negocio
                 datos.setearParametro("@idTipo", nuevo.Tipo.Id);
                 datos.setearParametro("@idDebilidad", nuevo.Debilidad.Id);
                 
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+        public void modificarPokemon(Pokemon pokeModificar)
+        {
+            AccecsoDatos datos = new AccecsoDatos();
+            try
+            {
+                datos.setearConsulta("update POKEMONS set " +
+                                     "Numero = @numero, Nombre = @nombre, Descripcion = @desc, UrlImagen = @imagen, IdTipo = @tipo, IdDebilidad = @deb " +
+                                     "WHERE Id = @id");
+                datos.setearParametro("@numero",pokeModificar.Numero);
+                datos.setearParametro("@nombre", pokeModificar.Nombre);
+                datos.setearParametro("@desc",pokeModificar.Descripcion);
+                datos.setearParametro("@imagen",pokeModificar.UrlImagen);
+                datos.setearParametro("@tipo",pokeModificar.Tipo.Id );
+                datos.setearParametro("@deb",pokeModificar.Debilidad.Id);
+                datos.setearParametro("@id",pokeModificar.Id);
+
+
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

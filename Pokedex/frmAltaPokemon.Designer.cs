@@ -82,6 +82,7 @@
             txtNumero.Name = "txtNumero";
             txtNumero.Size = new Size(125, 27);
             txtNumero.TabIndex = 0;
+
             // 
             // label1
             // 

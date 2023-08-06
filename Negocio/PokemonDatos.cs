@@ -23,7 +23,7 @@ namespace Negocio
                 conexion.ConnectionString = "Data Source=DESKTOP-6KIGGOG\\MSSQLSERVER01;Initial Catalog=POKEDEX_DB;Integrated Security=True; Encrypt=False";
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "Select p.Numero,p.Nombre,p.Descripcion,p.UrlImagen, e.Descripcion Tipo,D.Descripcion Debilidad, p.IdTipo, p.IdDebilidad, p.Id " +
-                                      "From POKEMONS p,ELEMENTOS e, ELEMENTOS d WHERE e.Id = p.IdTipo AND d.Id = p.IdDebilidad";
+                                      "From POKEMONS p,ELEMENTOS e, ELEMENTOS d WHERE e.Id = p.IdTipo AND d.Id = p.IdDebilidad AND p.Activo=1";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -123,6 +123,22 @@ namespace Negocio
             {
                 AccecsoDatos datos = new AccecsoDatos();
                 datos.setearConsulta("DELETE POKEMONS WHERE id = @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void elimnarLogico(int id)
+        {
+            try
+            {
+                AccecsoDatos datos = new AccecsoDatos();
+                datos.setearConsulta("UPDATE POKEMONS SET ACTIVO = 0  WHERE id = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarAccion();
             }

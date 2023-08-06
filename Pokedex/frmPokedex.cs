@@ -77,18 +77,32 @@ namespace Pokedex
 
         private void btnEliminarFisico_Click(object sender, EventArgs e)
         {
+            eliminar();
+        }
+
+        private void btnEliminarLogico_Click(object sender, EventArgs e)
+        {
+            eliminar(true);
+        }
+
+        private void eliminar(bool logico = false)
+        {
             PokemonDatos pokemon = new PokemonDatos();
             Pokemon seleccionado;
             try
             {
-                DialogResult respuesta =MessageBox.Show("Desea eliminar pokemon?","Eliminar",MessageBoxButtons.YesNo,MessageBoxIcon.Warning,MessageBoxDefaultButton.Button2);
-                if(respuesta == DialogResult.Yes)
+                DialogResult respuesta = MessageBox.Show("Desea eliminar pokemon?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (respuesta == DialogResult.Yes)
                 {
                     seleccionado = (Pokemon)dgvPokemon.CurrentRow.DataBoundItem;
-                    pokemon.eliminar(seleccionado.Id);
+                    if(logico)
+                        pokemon.elimnarLogico(seleccionado.Id);
+                    else
+                        pokemon.eliminar(seleccionado.Id);
+
                     CargarPokemon();
                 }
-                
+
             }
             catch (Exception ex)
             {

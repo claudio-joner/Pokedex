@@ -35,6 +35,9 @@
             btnModificar = new Button();
             btnEliminarFisico = new Button();
             btnEliminarLogico = new Button();
+            lblFiltro = new Label();
+            txtFiltro = new TextBox();
+            btnBuscar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPokemon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxPokemon).BeginInit();
             SuspendLayout();
@@ -103,11 +106,41 @@
             btnEliminarLogico.UseVisualStyleBackColor = true;
             btnEliminarLogico.Click += btnEliminarLogico_Click;
             // 
+            // lblFiltro
+            // 
+            lblFiltro.AutoSize = true;
+            lblFiltro.Location = new Point(12, 15);
+            lblFiltro.Name = "lblFiltro";
+            lblFiltro.Size = new Size(46, 20);
+            lblFiltro.TabIndex = 6;
+            lblFiltro.Text = "Filtro:";
+            lblFiltro.Click += label1_Click;
+            // 
+            // txtFiltro
+            // 
+            txtFiltro.Location = new Point(68, 12);
+            txtFiltro.Name = "txtFiltro";
+            txtFiltro.Size = new Size(202, 27);
+            txtFiltro.TabIndex = 0;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.Location = new Point(276, 10);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(94, 29);
+            btnBuscar.TabIndex = 1;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
+            // 
             // frmPokedex
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1170, 480);
+            Controls.Add(btnBuscar);
+            Controls.Add(txtFiltro);
+            Controls.Add(lblFiltro);
             Controls.Add(btnEliminarLogico);
             Controls.Add(btnEliminarFisico);
             Controls.Add(btnModificar);
@@ -122,6 +155,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvPokemon).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxPokemon).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -132,5 +166,8 @@
         private Button btnModificar;
         private Button btnEliminarFisico;
         private Button btnEliminarLogico;
+        private Label lblFiltro;
+        private TextBox txtFiltro;
+        private Button btnBuscar;
     }
 }

@@ -111,21 +111,22 @@
             lblFiltro.AutoSize = true;
             lblFiltro.Location = new Point(12, 15);
             lblFiltro.Name = "lblFiltro";
-            lblFiltro.Size = new Size(46, 20);
+            lblFiltro.Size = new Size(98, 20);
             lblFiltro.TabIndex = 6;
-            lblFiltro.Text = "Filtro:";
+            lblFiltro.Text = "Filtro Rápido:";
             lblFiltro.Click += label1_Click;
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(68, 12);
+            txtFiltro.Location = new Point(116, 12);
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(202, 27);
             txtFiltro.TabIndex = 0;
+            txtFiltro.TextChanged += txtFiltro_TextChanged;
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(276, 10);
+            btnBuscar.Location = new Point(719, 6);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(94, 29);
             btnBuscar.TabIndex = 1;

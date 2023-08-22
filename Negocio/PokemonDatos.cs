@@ -20,7 +20,7 @@ namespace Negocio
 
             try
             {
-                conexion.ConnectionString = "Data Source=DESKTOP-6KIGGOG\\MSSQLSERVER01;Initial Catalog=POKEDEX_DB;Integrated Security=True; Encrypt=False";
+                conexion.ConnectionString = "Data Source=LAPTOP-E09L8OSG;Initial Catalog=POKEDEX_DB;Integrated Security=True; Encrypt=False";//"Data Source=DESKTOP-6KIGGOG\\MSSQLSERVER01;Initial Catalog=POKEDEX_DB;Integrated Security=True; Encrypt=False";
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "Select p.Numero,p.Nombre,p.Descripcion,p.UrlImagen, e.Descripcion Tipo,D.Descripcion Debilidad, p.IdTipo, p.IdDebilidad, p.Id " +
                                       "From POKEMONS p,ELEMENTOS e, ELEMENTOS d WHERE e.Id = p.IdTipo AND d.Id = p.IdDebilidad AND p.Activo=1";

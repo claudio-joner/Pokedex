@@ -15,7 +15,9 @@ namespace Pokedex
         private void frmPokedex_Load(object sender, EventArgs e)
         {
             CargarPokemon();
-
+            cboCampo.Items.Add("Número");
+            cboCampo.Items.Add("Nombre");
+            cboCampo.Items.Add("Descripción");
         }
 
         private void dgvPokemon_SelectionChanged(object sender, EventArgs e)
@@ -149,14 +151,50 @@ namespace Pokedex
             ocultarColumnas();
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
-        {
 
+
+        private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion = cboCampo.SelectedItem.ToString();
+            if (opcion == "Número")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Mayor a");
+                cboCriterio.Items.Add("Menor a");
+                cboCriterio.Items.Add("Igual a");
+            }
+            else if (opcion == "Descripción")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Empieza con");
+                cboCriterio.Items.Add("Termina con");
+                cboCriterio.Items.Add("Contiene");
+            }
+            else
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Empieza con");
+                cboCriterio.Items.Add("Termina con");
+                cboCriterio.Items.Add("Contiene");
+            }
         }
 
-        private void lblCriterio_Click(object sender, EventArgs e)
+        private void btnFiltrar_Click(object sender, EventArgs e)
         {
+            PokemonDatos pokemonDatos = new PokemonDatos();
+            try
+            {
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtro = txtFiltroAvanzado.Text;
+                dgvPokemon.DataSource = pokemonDatos.filtrar(campo, criterio, filtro);
 
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

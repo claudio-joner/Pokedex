@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using Dominio;
+using System.Collections;
 
 
 namespace Negocio
@@ -143,6 +144,94 @@ namespace Negocio
                 datos.setearConsulta("UPDATE POKEMONS SET ACTIVO = 0  WHERE id = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<Pokemon> filtrar(string campo, string criterio, string filtro)
+        {
+            List<Pokemon> list = new List<Pokemon>();
+            AccecsoDatos datos = new AccecsoDatos();
+            try
+            {
+                string consulta = "Select p.Numero,p.Nombre,p.Descripcion,p.UrlImagen, e.Descripcion Tipo,D.Descripcion Debilidad, " +
+                                  "p.IdTipo, p.IdDebilidad, p.Id FROM POKEMONS p,ELEMENTOS e, ELEMENTOS d WHERE e.Id = p.IdTipo AND " +
+                                  "d.Id = p.IdDebilidad AND p.Activo=1 AND";
+                switch (campo)
+                {
+                    case "Número":
+                        switch (criterio)
+                        {
+                            case "Mayor a":
+                                consulta += " p.Numero > " + filtro;
+                                break;
+                            case "Menor a":
+                                consulta += " p.Numero < " + filtro;
+                                break;
+                            default:
+                                consulta += " p.Numero == " + filtro;
+                                break;
+                        }
+                        break;
+                    case "Descripción":
+                        switch (criterio)
+                        {
+                            case "Empieza con":
+                                consulta += " p.Descripcion like '" + filtro + "%'";
+                                break;
+                            case "Termina con":
+                                consulta += " p.Descripcion like '%" + filtro + "'";
+                                break;
+                            default:
+                                consulta += " p.Descripcion like '%" + filtro + "%'";
+                                break;
+                        }
+                        break;
+                    //case "Nombre":
+                        
+                    default:
+                        switch (criterio)
+                        {
+                            case "Empieza con":
+                                consulta += " p.Nombre like '" + filtro + "%'";
+                                break;
+                            case "Termina con":
+                                consulta += " p.Nombre like '%" + filtro + "'";
+                                break;
+                            default:
+                                consulta += " p.Nombre like '%" + filtro + "%'";
+                                break;
+                        }
+                        break;  
+                }
+
+                datos.setearConsulta(consulta);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Pokemon auxiliar = new Pokemon();
+                    auxiliar.Numero = datos.Lector.GetInt32(0);
+                    auxiliar.Id = (int)datos.Lector["Id"];
+                    auxiliar.Nombre = (string)datos.Lector["nombre"];
+                    auxiliar.Descripcion = (string)datos.Lector[2];
+                    if (!(datos.Lector["UrlImagen"] is DBNull))
+                    {
+                        auxiliar.UrlImagen = (string)datos.Lector[3];
+                    }
+                    auxiliar.Tipo = new Elemento();
+                    auxiliar.Tipo.Id = (int)datos.Lector[6];
+                    auxiliar.Tipo.Descripcion = (string)datos.Lector[4];
+                    auxiliar.Debilidad = new Elemento();
+                    auxiliar.Debilidad.Id = (int)datos.Lector[7];
+                    auxiliar.Debilidad.Descripcion = (string)datos.Lector["Debilidad"];
+                    list.Add(auxiliar);
+                }
+                return list;
             }
             catch (Exception ex)
             {

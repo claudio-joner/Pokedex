@@ -53,34 +53,31 @@
             // 
             dgvPokemon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPokemon.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgvPokemon.Location = new Point(10, 39);
-            dgvPokemon.Margin = new Padding(3, 2, 3, 2);
+            dgvPokemon.Location = new Point(11, 52);
             dgvPokemon.MultiSelect = false;
             dgvPokemon.Name = "dgvPokemon";
             dgvPokemon.RowHeadersWidth = 51;
             dgvPokemon.RowTemplate.Height = 29;
             dgvPokemon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPokemon.Size = new Size(701, 260);
+            dgvPokemon.Size = new Size(801, 347);
             dgvPokemon.TabIndex = 0;
             dgvPokemon.CellContentClick += dgvPokemon_CellContentClick;
             dgvPokemon.SelectionChanged += dgvPokemon_SelectionChanged;
             // 
             // pbxPokemon
             // 
-            pbxPokemon.Location = new Point(730, 39);
-            pbxPokemon.Margin = new Padding(3, 2, 3, 2);
+            pbxPokemon.Location = new Point(833, 52);
             pbxPokemon.Name = "pbxPokemon";
-            pbxPokemon.Size = new Size(284, 260);
+            pbxPokemon.Size = new Size(325, 347);
             pbxPokemon.SizeMode = PictureBoxSizeMode.StretchImage;
             pbxPokemon.TabIndex = 1;
             pbxPokemon.TabStop = false;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(38, 322);
-            btnAgregar.Margin = new Padding(3, 2, 3, 2);
+            btnAgregar.Location = new Point(43, 429);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(82, 22);
+            btnAgregar.Size = new Size(94, 29);
             btnAgregar.TabIndex = 2;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
@@ -88,10 +85,9 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(133, 322);
-            btnModificar.Margin = new Padding(3, 2, 3, 2);
+            btnModificar.Location = new Point(152, 429);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(82, 22);
+            btnModificar.Size = new Size(94, 29);
             btnModificar.TabIndex = 3;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
@@ -99,10 +95,9 @@
             // 
             // btnEliminarFisico
             // 
-            btnEliminarFisico.Location = new Point(231, 322);
-            btnEliminarFisico.Margin = new Padding(3, 2, 3, 2);
+            btnEliminarFisico.Location = new Point(264, 429);
             btnEliminarFisico.Name = "btnEliminarFisico";
-            btnEliminarFisico.Size = new Size(131, 22);
+            btnEliminarFisico.Size = new Size(150, 29);
             btnEliminarFisico.TabIndex = 4;
             btnEliminarFisico.Text = "Eliminación Física";
             btnEliminarFisico.UseVisualStyleBackColor = true;
@@ -110,10 +105,9 @@
             // 
             // btnEliminarLogico
             // 
-            btnEliminarLogico.Location = new Point(382, 322);
-            btnEliminarLogico.Margin = new Padding(3, 2, 3, 2);
+            btnEliminarLogico.Location = new Point(437, 429);
             btnEliminarLogico.Name = "btnEliminarLogico";
-            btnEliminarLogico.Size = new Size(131, 22);
+            btnEliminarLogico.Size = new Size(150, 29);
             btnEliminarLogico.TabIndex = 5;
             btnEliminarLogico.Text = "Eliminación Lógica";
             btnEliminarLogico.UseVisualStyleBackColor = true;
@@ -122,28 +116,26 @@
             // lblFiltro
             // 
             lblFiltro.AutoSize = true;
-            lblFiltro.Location = new Point(10, 11);
+            lblFiltro.Location = new Point(11, 15);
             lblFiltro.Name = "lblFiltro";
-            lblFiltro.Size = new Size(77, 15);
+            lblFiltro.Size = new Size(98, 20);
             lblFiltro.TabIndex = 6;
             lblFiltro.Text = "Filtro Rápido:";
             lblFiltro.Click += label1_Click;
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(102, 9);
-            txtFiltro.Margin = new Padding(3, 2, 3, 2);
+            txtFiltro.Location = new Point(117, 12);
             txtFiltro.Name = "txtFiltro";
-            txtFiltro.Size = new Size(177, 23);
+            txtFiltro.Size = new Size(202, 27);
             txtFiltro.TabIndex = 0;
             txtFiltro.TextChanged += txtFiltro_TextChanged;
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(629, 4);
-            btnBuscar.Margin = new Padding(3, 2, 3, 2);
+            btnBuscar.Location = new Point(719, 5);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(82, 22);
+            btnBuscar.Size = new Size(94, 29);
             btnBuscar.TabIndex = 1;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
@@ -152,68 +144,75 @@
             // lblCampo
             // 
             lblCampo.AutoSize = true;
-            lblCampo.Location = new Point(12, 364);
+            lblCampo.Location = new Point(14, 485);
             lblCampo.Name = "lblCampo";
-            lblCampo.Size = new Size(49, 15);
+            lblCampo.Size = new Size(60, 20);
             lblCampo.TabIndex = 8;
             lblCampo.Text = "Campo:";
             // 
             // lblCriterio
             // 
             lblCriterio.AutoSize = true;
-            lblCriterio.Location = new Point(199, 364);
+            lblCriterio.Location = new Point(227, 485);
             lblCriterio.Name = "lblCriterio";
-            lblCriterio.Size = new Size(49, 15);
+            lblCriterio.Size = new Size(61, 20);
             lblCriterio.TabIndex = 9;
             lblCriterio.Text = "Criterio:";
-            lblCriterio.Click += lblCriterio_Click;
             // 
             // lblFiltroAvanzado
             // 
             lblFiltroAvanzado.AutoSize = true;
-            lblFiltroAvanzado.Location = new Point(409, 364);
+            lblFiltroAvanzado.Location = new Point(467, 485);
             lblFiltroAvanzado.Name = "lblFiltroAvanzado";
-            lblFiltroAvanzado.Size = new Size(37, 15);
+            lblFiltroAvanzado.Size = new Size(46, 20);
             lblFiltroAvanzado.TabIndex = 10;
             lblFiltroAvanzado.Text = "Filtro:";
             // 
             // cboCampo
             // 
+            cboCampo.DropDownStyle = ComboBoxStyle.DropDownList;
             cboCampo.FormattingEnabled = true;
-            cboCampo.Location = new Point(67, 359);
+            cboCampo.Location = new Point(77, 479);
+            cboCampo.Margin = new Padding(3, 4, 3, 4);
             cboCampo.Name = "cboCampo";
-            cboCampo.Size = new Size(121, 23);
+            cboCampo.Size = new Size(138, 28);
             cboCampo.TabIndex = 11;
+            cboCampo.SelectedIndexChanged += cboCampo_SelectedIndexChanged;
             // 
             // cboCriterio
             // 
+            cboCriterio.DropDownStyle = ComboBoxStyle.DropDownList;
             cboCriterio.FormattingEnabled = true;
-            cboCriterio.Location = new Point(254, 359);
+            cboCriterio.Location = new Point(290, 479);
+            cboCriterio.Margin = new Padding(3, 4, 3, 4);
             cboCriterio.Name = "cboCriterio";
-            cboCriterio.Size = new Size(121, 23);
+            cboCriterio.Size = new Size(138, 28);
             cboCriterio.TabIndex = 12;
             // 
             // txtFiltroAvanzado
             // 
-            txtFiltroAvanzado.Location = new Point(452, 359);
+            txtFiltroAvanzado.Location = new Point(517, 479);
+            txtFiltroAvanzado.Margin = new Padding(3, 4, 3, 4);
             txtFiltroAvanzado.Name = "txtFiltroAvanzado";
-            txtFiltroAvanzado.Size = new Size(100, 23);
+            txtFiltroAvanzado.Size = new Size(114, 27);
             txtFiltroAvanzado.TabIndex = 13;
             // 
             // btnFiltrar
             // 
-            btnFiltrar.Location = new Point(573, 360);
+            btnFiltrar.Location = new Point(659, 476);
+            btnFiltrar.Margin = new Padding(3, 4, 3, 4);
             btnFiltrar.Name = "btnFiltrar";
-            btnFiltrar.Size = new Size(75, 23);
+            btnFiltrar.Size = new Size(86, 31);
             btnFiltrar.TabIndex = 14;
             btnFiltrar.Text = "Buscar";
             btnFiltrar.UseVisualStyleBackColor = true;
+            btnFiltrar.Click += btnFiltrar_Click;
             // 
             // frmPokedex
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1024, 394);
+            ClientSize = new Size(1170, 525);
             Controls.Add(btnFiltrar);
             Controls.Add(txtFiltroAvanzado);
             Controls.Add(cboCriterio);
@@ -231,7 +230,6 @@
             Controls.Add(pbxPokemon);
             Controls.Add(dgvPokemon);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 2, 3, 2);
             Name = "frmPokedex";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Pokedex";

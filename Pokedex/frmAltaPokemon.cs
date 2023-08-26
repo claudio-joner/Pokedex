@@ -9,12 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace Pokedex
 {
     public partial class frmAltaPokemon : Form
     {
         private Pokemon pokemon = null;
+        OpenFileDialog archivo = null;
         public frmAltaPokemon()
         {
             InitializeComponent();
@@ -40,7 +42,7 @@ namespace Pokedex
                 cboDebilidad.ValueMember = "Id";
                 cboDebilidad.DisplayMember = "Descripcion";
 
-                if (pokemon != null )
+                if (pokemon != null)
                 {
                     txtNumero.Text = pokemon.Numero.ToString();
                     txtNombre.Text = pokemon.Nombre;
@@ -71,9 +73,9 @@ namespace Pokedex
             PokemonDatos pokemonDatos = new PokemonDatos();
             try
             {
-                if(pokemon == null )
+                if (pokemon == null)
                     pokemon = new Pokemon();
-                
+
                 pokemon.Numero = int.Parse(txtNumero.Text);
                 pokemon.Nombre = txtNombre.Text;
                 pokemon.Descripcion = txtDescripcion.Text;
@@ -90,6 +92,12 @@ namespace Pokedex
                 {
                     pokemonDatos.agregarPokemon(pokemon);
                     MessageBox.Show("Agregado Exitosamente");
+                }
+
+                //Guardo imagen si lo levanto localmante
+                if(archivo !=  null && !(txtImagen.Text.ToUpper().Contains("HTPP")))
+                {
+                    File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
                 }
 
                 this.Close();
@@ -121,6 +129,21 @@ namespace Pokedex
             catch (Exception)
             {
                 pbxPokemon.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy9Jw7n8XY-g-dqx9i-zetdrF1Tyai7CxEyA261Mld&s");
+            }
+        }
+
+        private void btnAgregaImagen_Click(object sender, EventArgs e)
+        {
+
+            archivo = new OpenFileDialog();
+            archivo.Filter = "jpg|*.jpg|png|*.png";
+            if(archivo.ShowDialog() == DialogResult.OK)
+            {
+                txtImagen.Text = archivo.FileName;
+                CargarImagen(archivo.FileName);
+
+                //Guardar imagen
+                //File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName) ;
             }
         }
     }

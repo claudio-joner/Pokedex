@@ -43,6 +43,7 @@
             txtImagen = new TextBox();
             label6 = new Label();
             pbxPokemon = new PictureBox();
+            btnAgregaImagen = new Button();
             ((System.ComponentModel.ISupportInitialize)pbxPokemon).BeginInit();
             SuspendLayout();
             // 
@@ -177,11 +178,22 @@
             pbxPokemon.TabIndex = 28;
             pbxPokemon.TabStop = false;
             // 
+            // btnAgregaImagen
+            // 
+            btnAgregaImagen.Location = new Point(295, 164);
+            btnAgregaImagen.Name = "btnAgregaImagen";
+            btnAgregaImagen.Size = new Size(46, 29);
+            btnAgregaImagen.TabIndex = 29;
+            btnAgregaImagen.Text = "+";
+            btnAgregaImagen.UseVisualStyleBackColor = true;
+            btnAgregaImagen.Click += btnAgregaImagen_Click;
+            // 
             // frmAltaPokemon
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(673, 371);
+            Controls.Add(btnAgregaImagen);
             Controls.Add(pbxPokemon);
             Controls.Add(txtImagen);
             Controls.Add(label6);
@@ -223,5 +235,6 @@
         private TextBox txtImagen;
         private Label label6;
         private PictureBox pbxPokemon;
+        private Button btnAgregaImagen;
     }
 }

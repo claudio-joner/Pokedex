@@ -59,7 +59,7 @@
             // 
             // pbxPokemon
             // 
-            pbxPokemon.Location = new Point(847, 52);
+            pbxPokemon.Location = new Point(834, 52);
             pbxPokemon.Name = "pbxPokemon";
             pbxPokemon.Size = new Size(324, 347);
             pbxPokemon.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -138,7 +138,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1170, 480);
+            ClientSize = new Size(1170, 517);
             Controls.Add(btnBuscar);
             Controls.Add(txtFiltro);
             Controls.Add(lblFiltro);

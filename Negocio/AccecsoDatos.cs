@@ -12,7 +12,10 @@ namespace Negocio
         private SqlConnection conexion;
         private SqlCommand comando;
         private SqlDataReader lector;
-        private string cadenaConexion = "Data Source=LAPTOP-E09L8OSG;Initial Catalog=POKEDEX_DB;Integrated Security=True;Encrypt=False";//"Data Source=LAPTOP-E09L8OSG;Initial Catalog=POKEDEX_DB;Integrated Security=True;Encrypt=False";
+        private string cadenaConexion = "Data Source=DESKTOP-6KIGGOG\\MSSQLSERVER01;Initial Catalog=POKEDEX_DB;Integrated Security=True; Encrypt=False";
+        //private string cadenaConexion = "Data Source=LAPTOP-E09L8OSG;Initial Catalog=POKEDEX_DB;Integrated Security=True;Encrypt=False"; 
+
+
 
         public SqlDataReader Lector { get => lector; }
 

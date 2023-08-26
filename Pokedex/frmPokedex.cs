@@ -149,6 +149,14 @@ namespace Pokedex
             ocultarColumnas();
         }
 
+        private void label1_Click_1(object sender, EventArgs e)
+        {
 
+        }
+
+        private void lblCriterio_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
